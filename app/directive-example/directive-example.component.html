@@ -1,0 +1,14 @@
+<p>{{paragraph}}</p>
+<div *ngIf="show" [style.content]="show">
+    <ul>
+        <li [ngStyle]="{color: color, 'font-style': style}"
+            [ngClass]="{odd: o, even: e, last: l}"
+            *ngFor="let color of colors; let i=index; let o=odd; let e=even; let l=last">
+            {{i}} -- {{color}}
+            <div [ngSwitch]="color">
+                <p [style.fontSize]="'3em'" *ngSwitchWhen="'blue'">I am blue color</p>
+                <p *ngSwitchDefault>I am not blue color</p>
+            </div>
+        <li>
+    </ul>
+</div>
